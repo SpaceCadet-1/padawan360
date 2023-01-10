@@ -44,7 +44,7 @@ void HandleXBoxThrottles()
   }
 
   // DOME DRIVE!
-  domeThrottle = (map(Xbox.getAnalogHat(domeAxis, 0), -32768, 32767, DOMESPEED, -DOMESPEED));
+  domeThrottle = (map(Xbox.getAnalogHat(domeAxis, 0), -32768, 32767, -DOMESPEED, DOMESPEED));
   if (domeThrottle > -DOMEDEADZONERANGE && domeThrottle < DOMEDEADZONERANGE) {
     //stick in dead zone - don't spin dome
     domeThrottle = 0;
