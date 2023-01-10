@@ -102,8 +102,7 @@ byte vol = 20;
 // Automation Delays
 // set automateDelay to min and max seconds between sounds
 byte automateDelay = random(5, 20); 
-//How much the dome may turn during automation.
-int turnDirection = 20;
+
 
 //use the Cytron controller for the dome instead of Syren
 #define USECYTRON

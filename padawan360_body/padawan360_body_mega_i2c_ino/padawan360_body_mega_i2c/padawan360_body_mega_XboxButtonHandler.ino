@@ -48,34 +48,31 @@ void HandleXBoxButtons()
       }
       if (automateAction < 4) {
 
-#if defined (USECYTRON)
+
   long randNumber;
-     randomSeed(randNumber);
+  randomSeed(randNumber);
 
    randNumber = random(-350, 350);
-   CytronMotor.setSpeed(randNumber);
-
-#elif defined(SYRENSIMPLE)
-        Syren10.motor(turnDirection);
-#else
-        Syren10.motor(1, turnDirection);
-#endif
-
-        delay(750);
 
 #if defined (USECYTRON)
+   CytronMotor.setSpeed(randNumber);
+#elif defined(SYRENSIMPLE)
+    Syren10.motor(randNumber);
+#else
+    Syren10.motor(1, randNumber);
+#endif
 
+    delay(750);
+
+#if defined (USECYTRON)
+      CytronMotor.setSpeed(0);
 #elif defined(SYRENSIMPLE)
         Syren10.motor(0);
 #else
         Syren10.motor(1, 0);
 #endif
 
-        if (turnDirection > 0) {
-          turnDirection = -45;
-        } else {
-          turnDirection = 45;
-        }
+       
       }
 
       // sets the mix, max seconds between automation actions - sounds and dome movement
